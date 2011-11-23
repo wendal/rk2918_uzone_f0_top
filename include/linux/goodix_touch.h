@@ -21,8 +21,8 @@
 #define TOUCH_MAX_HEIGHT 	7680	
 #define TOUCH_MAX_WIDTH	 	5120
 //显示屏的分辨率，根据具体平台更改，与触摸屏映射坐标相关
-#define SCREEN_MAX_HEIGHT	1024				
-#define SCREEN_MAX_WIDTH	768
+#define SCREEN_MAX_HEIGHT	800				
+#define SCREEN_MAX_WIDTH	480
 
 //#define SHUTDOWN_PORT 	RK29_PIN4_PD5			//SHUTDOWN管脚号
 //#define INT_PORT  		RK29_PIN0_PA2			//Int IO port

@@ -32,7 +32,7 @@
 #include <linux/earlysuspend.h>
 #endif
 
-#define rk28printk(x...)	//printk(x)
+#define rk28printk(x...)	printk(x)
 
 static int  mma7660_probe(struct i2c_client *client, const struct i2c_device_id *id);
 
@@ -227,7 +227,7 @@ static void mma7660_report_value(struct i2c_client *client, struct mma7660_axis 
     //struct mma7660_axis *axis = (struct mma7660_axis *)rbuf;
 
 	/* Report acceleration sensor information */
-    input_report_abs(mma7660->input_dev, ABS_X, axis->x);
+    input_report_abs(mma7660->input_dev, ABS_X, - axis->x);
     input_report_abs(mma7660->input_dev, ABS_Y, axis->y);
     input_report_abs(mma7660->input_dev, ABS_Z, axis->z);
     input_sync(mma7660->input_dev);

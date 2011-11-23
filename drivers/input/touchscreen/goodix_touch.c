@@ -358,7 +358,7 @@ BIT_NO_CHANGE:
 		}
 
 		// 将触摸屏的坐标映射到LCD坐标上. 触摸屏短边为X轴，LCD坐标一般长边为X轴，可能需要调整原点位置
-		finger_list.pointer[count].x =  finger_list.pointer[count].x*SCREEN_MAX_WIDTH/TOUCH_MAX_WIDTH;//y
+		finger_list.pointer[count].x =  (TOUCH_MAX_WIDTH-finger_list.pointer[count].x)*SCREEN_MAX_WIDTH/TOUCH_MAX_WIDTH;//y
 		finger_list.pointer[count].y =  finger_list.pointer[count].y*SCREEN_MAX_HEIGHT/TOUCH_MAX_HEIGHT ;				//x
 		gt80xy_swap(finger_list.pointer[count].x, finger_list.pointer[count].y); 
 

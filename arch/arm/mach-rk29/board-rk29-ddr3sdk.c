@@ -494,8 +494,8 @@ static struct eeti_egalax_platform_data eeti_egalax_info = {
 /*goodix_ts*/
 #if defined (CONFIG_D70_L3188A)
 struct goodix_i2c_rmi_platform_data d70_l3188a_info = {
-	.shutdown_pin = RK29_PIN5_PA0,
-	.irq_pin = RK29_PIN0_PA2,
+	.shutdown_pin = RK29_PIN6_PC3,
+	.irq_pin = RK29_PIN0_PA3,
 };
 #endif
 
@@ -853,14 +853,7 @@ static struct i2c_board_info __initdata board_i2c0_devices[] = {
 	},
 #endif
 
-#if defined (CONFIG_GS_MMA7660)
-	{
-		.type    		= "gs_mma7660",
-		.addr           = 0x4c,
-		.flags			= 0,
-		.irq			= RK29_PIN0_PA3,
-	},
-#endif
+
 
 };
 #endif
@@ -889,6 +882,17 @@ static struct i2c_board_info __initdata board_i2c1_devices[] = {
     },
 #endif
 
+/*goodix_ts*/
+#if defined (CONFIG_D70_L3188A)
+    {
+      .type           = "goodix-ts",
+      .addr           = 0x55,
+      .flags          = 0,
+      .irq            = RK29_PIN0_PA2,
+	  .platform_data = &d70_l3188a_info,
+    },
+#endif
+
 };
 #endif
 
@@ -914,16 +918,7 @@ static struct i2c_board_info __initdata board_i2c2_devices[] = {
     },
 #endif
 
-/*goodix_ts*/
-#if defined (CONFIG_D70_L3188A)
-    {
-      .type           = "goodix-ts",
-      .addr           = 0x55,
-      .flags          = 0,
-      .irq            = RK29_PIN0_PA2,
-	  .platform_data = &d70_l3188a_info,
-    },
-#endif
+
 
 #if defined (CONFIG_TOUCHSCREEN_GT801_IIC)
     {
@@ -933,6 +928,15 @@ static struct i2c_board_info __initdata board_i2c2_devices[] = {
       .irq            = RK29_PIN0_PA2,
       .platform_data  = &gt801_ts_info,
     },
+#endif
+
+#if defined (CONFIG_GS_MMA7660)
+	{
+		.type    		= "gs_mma7660",
+		.addr           = 0x4c,
+		.flags			= 0,
+		.irq			= RK29_PIN0_PA3,
+	},
 #endif
 
 };
