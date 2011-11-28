@@ -32,7 +32,7 @@
 #include <linux/earlysuspend.h>
 #endif
 
-#define rk28printk(x...)	printk(x)
+#define rk28printk(x...)	//printk(x)
 
 static int  mma7660_probe(struct i2c_client *client, const struct i2c_device_id *id);
 

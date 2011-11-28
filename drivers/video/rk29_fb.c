@@ -1381,6 +1381,8 @@ static int fb0_check_var(struct fb_var_screeninfo *var, struct fb_info *info)
         printk("bits_per_pixel=%d \n", var->bits_per_pixel);
         return -EINVAL;
     }
+//    if (var->yoffset > 0)
+//	var->yoffset --;
 
     if( (var->xoffset+var->xres)>var->xres_virtual ||
         (var->yoffset+var->yres)>var->yres_virtual )
